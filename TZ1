@@ -1,14 +1,20 @@
 #!/bin/bash
 input_d=${1:-'in'}
+# входная директория
 output_d=${2:-'out'}
+#выходная директория
 file_vhod=$(find $input_d -maxdepth 1 -type f)
 echo $file_vhod
+#6-7 строки: Получение списка файлов, находящихся непосредственно во входной директории
 dir_vhod=$(find $input_d -maxdepth 1 -type d)
 echo $dir_vhod
+#9-10 строки: получение списка директорий, находящихся во входной директории
 file_result=$(find $input_d -type f)
 echo $file_result
+#12-13 строки: получение всех файлов
 for f in $file_result;
 do 
 cp $f $output_d;
 done
 echo $output_d
+# 15-19 строки: Копирование всех файлов из входной директории в выходную
